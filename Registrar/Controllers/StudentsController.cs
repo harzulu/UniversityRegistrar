@@ -85,19 +85,27 @@ namespace Registrar.Controllers
       return RedirectToAction("Index");
     }
 
-    // public ActionResult Delete(int id)
-    // {
-    //   var thisStudent = _db.Students.FirstOrDefault(Students => Students.StudentId == id);
-    //   return View(thisStudent);
-    // }
+    public ActionResult Delete(int id)
+    {
+      var thisStudent = _db.Students.FirstOrDefault(Students => Students.StudentId == id);
+      return View(thisStudent);
+    }
 
-    // [HttpPost, ActionName("Delete")]
-    // public ActionResult DeleteConfirmed(int id)
-    // {
-    //   var thisStudent = _db.Students.FirstOrDefault(Students => Students.StudentId == id);
-    //   _db.Students.Remove(thisStudent);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisStudent = _db.Students.FirstOrDefault(students => students.StudentId == id);
+      _db.Students.Remove(thisStudent);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+    [HttpPost]
+    public ActionResult DeleteCourse(int joinId)
+    {
+        var joinEntry = _db.CourseStudent.FirstOrDefault(entry => entry.CourseStudentId == joinId);
+        _db.CourseStudent.Remove(joinEntry);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+    }
   }
 }
