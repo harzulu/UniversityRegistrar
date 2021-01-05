@@ -6,17 +6,9 @@
 @model Registrar.Models.Student;
 
 <h2>Are you sure you want to delete this?</h2>
-
 @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
-<ul>
-@foreach(var join in Model.Courses)
+@using (Html.BeginForm())
 {
-  <li>@join.Course.Name</li>
-  @using (Html.BeginForm("DeleteCourse", "Students"))
-  {
-    @Html.Hidden("joinId", @join.CourseStudentId)
-    <input type="submit" value="Delete"/>
-  }
+    <input type="submit" value="Delete" />
 }
-</ul>
 @Html.ActionLink("Back to List", "Index")

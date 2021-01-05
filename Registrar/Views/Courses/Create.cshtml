@@ -13,4 +13,11 @@
     @Html.EditorFor(model => model.CourseNumber)
     <input type="submit" value="Add new course" />
 }
-<p>@Html.ActionLink("Show all courses", "Index")</p>
+<div id="outer">
+  <div class="table">
+    <ul id="horizontal-list">
+      <li>@Html.ActionLink("See all courses", "Index", "Courses")</li>
+      <li>@Html.ActionLink("Home", "Index", "Home")</li>
+    </ul>
+  </div>
+</div>

@@ -2,6 +2,13 @@
   Layout = "_Layout";
 }
 
-<h1>Welcome to the University Registrar</h1>
-<p>@Html.ActionLink("See all courses", "Index", "Courses")</p>
-<p>@Html.ActionLink("See all students", "Index", "Students")</p>
+<h1 id ="welcomeMessage">Welcome to the University Registrar</h1>
+
+<div id="outer">
+  <div class="table">
+    <ul id="horizontal-list">
+      <li>@Html.ActionLink("See all courses", "Index", "Courses")</li>
+      <li>@Html.ActionLink("See all students", "Index", "Students")</li>
+    </ul>
+  </div>
+</div>
